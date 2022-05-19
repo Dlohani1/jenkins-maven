@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
+               cd jenkins-maven
                echo 'Compile....'
             }
         }
