@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-               cd 'jenkins-maven'
+               cd 'src'
                
             }
         }
