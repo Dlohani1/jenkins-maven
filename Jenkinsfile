@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-               sh  "php -v"
+               echo 'Compile....'
             }
         }
         stage('Test') {
