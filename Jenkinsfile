@@ -9,8 +9,8 @@ pipeline {
         }
         stage('Compile') {
             steps {
-               cd jenkins-maven
-               echo 'Compile....'
+               cd 'jenkins-maven'
+               
             }
         }
         stage('Test') {
