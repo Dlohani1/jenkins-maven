@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                sh " git clone https://github.com/Dlohani1/jenkins-maven.git "
+                git credentialsId: 'dlohani1@gmail.com', url: 'https://github.com/Dlohani1/jenkins-maven.git'
+                sh "git branch -a"
             }
         }
         stage('Compile') {
