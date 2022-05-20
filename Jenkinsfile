@@ -1,6 +1,11 @@
 pipeline {
     agent any
-    def mvnHome = tool name: 'maven', type: 'maven'
+    
+    tools {
+           
+            mvnHome "maven"
+         
+        }
     stages {
         stage('Clone') {
            
