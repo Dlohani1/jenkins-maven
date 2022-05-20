@@ -3,7 +3,7 @@ pipeline {
     
     tools {
            
-            mvnHome "maven"
+           mvnHome: 'maven', type: 'maven'
          
         }
     stages {
