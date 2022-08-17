@@ -1,28 +1,27 @@
 pipeline {
     agent any
-    tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-        maven 'MAVEN-HOME' 
-    }
-
     stages {
-        stage('Clone') {
-           
+        stage ('Compile Stage') {
+
             steps {
-                git credentialsId: '41409b56-475f-4e73-997d-34458a2c7315', url: 'https://github.com/Dlohani1/jenkins-maven.git'
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    bat 'mvn clean compile'
+                }
             }
         }
-        stage('Compile') {
-            
+        stage ('Testing Stage') {
+
             steps {
-                
-                sh "${mvnHome}/bin/mvn compile"
-               
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    bat 'mvn test'
+                }
             }
         }
-        stage('Test') {
+        stage ('Install Stage') {
             steps {
-                echo 'Deploying....'
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    bat 'mvn install'
+                }
             }
         }
     }
